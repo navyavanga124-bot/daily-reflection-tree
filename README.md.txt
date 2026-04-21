@@ -1,14 +1,14 @@
 # Daily Reflection Tree — Deterministic Reflection Agent
 
 ## Overview
-
-This project implements a **deterministic end-of-day reflection system** that guides an employee through a structured self-reflection process.
+This project is a simple deterministic reflection tool I built to guide end-of-day thinking that guides an employee through a structured self-reflection process.
 
 Unlike AI chat-based tools, this system:
 
 * Uses **no LLM or AI at runtime**
 * Produces **consistent and auditable outputs**
 * Encodes psychological principles into a **decision tree**
+This was designed as part of the DeepThought Fellowship assignment.
 
 The goal is to help users reflect across three key axes:
 
@@ -80,7 +80,7 @@ These are tallied to determine dominant behavioral patterns.
 ## Key Design Principles
 
 * **Deterministic** → Same input = same output
-* **Structured thinking** → Guided reflection, not free text
+* **Structured thinking** → guided reflection instead of open-ended input
 * **Non-judgmental tone** → Encourages awareness
 * **Conversational flow** → Feels natural, not like a survey
 
@@ -90,7 +90,7 @@ These are tallied to determine dominant behavioral patterns.
 
 Today you leaned internal in handling situations, contribution-oriented in your actions, and your focus extended toward others.
 
-This reflects a pattern of ownership and outward thinking — a strong base for consistent growth.
+This reflects a pattern of ownership and outward thinking —a strong base for improving day by day.
 
 ---
 
