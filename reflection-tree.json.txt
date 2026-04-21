@@ -1,0 +1,290 @@
+[
+  {
+    "id": "START",
+    "parentId": null,
+    "type": "start",
+    "text": "Good evening. Let's take a few minutes to reflect on your day."
+  },
+
+  {
+    "id": "A1_Q1",
+    "parentId": "START",
+    "type": "question",
+    "text": "How would you describe today in one word?",
+    "options": ["Productive", "Tough", "Mixed", "Frustrating"]
+  },
+
+  {
+    "id": "A1_D1",
+    "parentId": "A1_Q1",
+    "type": "decision",
+    "logic": {
+      "Productive": "A1_Q2_HIGH",
+      "Mixed": "A1_Q2_HIGH",
+      "Tough": "A1_Q2_LOW",
+      "Frustrating": "A1_Q2_LOW"
+    }
+  },
+
+  {
+    "id": "A1_Q2_HIGH",
+    "parentId": "A1_D1",
+    "type": "question",
+    "text": "When something went well today, what made it happen?",
+    "options": [
+      "I prepared well",
+      "The team supported me",
+      "It just worked out",
+      "I adapted along the way"
+    ],
+    "signals": [
+      "axis1:internal",
+      "axis1:external",
+      "axis1:external",
+      "axis1:internal"
+    ]
+  },
+
+  {
+    "id": "A1_Q2_LOW",
+    "parentId": "A1_D1",
+    "type": "question",
+    "text": "When things got difficult, what was your first instinct?",
+    "options": [
+      "Figure out what I could control",
+      "Wait for someone to step in",
+      "Push through without clarity",
+      "Feel stuck"
+    ],
+    "signals": [
+      "axis1:internal",
+      "axis1:external",
+      "axis1:internal",
+      "axis1:external"
+    ]
+  },
+
+  {
+    "id": "A1_D2",
+    "parentId": "A1_Q2_HIGH",
+    "type": "decision",
+    "logic": {
+      "axis1:internal": "A1_R_INT",
+      "axis1:external": "A1_R_EXT"
+    }
+  },
+
+  {
+    "id": "A1_D2B",
+    "parentId": "A1_Q2_LOW",
+    "type": "decision",
+    "logic": {
+      "axis1:internal": "A1_R_INT",
+      "axis1:external": "A1_R_EXT"
+    }
+  },
+
+  {
+    "id": "A1_R_INT",
+    "parentId": "A1_D2",
+    "type": "reflection",
+    "text": "You noticed your role in how things unfolded. That sense of ownership builds consistency — even when outcomes vary.",
+    "signal": "axis1:internal"
+  },
+
+  {
+    "id": "A1_R_EXT",
+    "parentId": "A1_D2B",
+    "type": "reflection",
+    "text": "It seems the day felt shaped by external factors. That’s real — but even within constraints, small choices often exist.",
+    "signal": "axis1:external"
+  },
+
+  {
+    "id": "BRIDGE_1_2",
+    "parentId": "A1_R_INT",
+    "type": "bridge",
+    "text": "Now let's shift from how you handled things — to what you gave.",
+    "target": "A2_Q1"
+  },
+
+  {
+    "id": "BRIDGE_1_2B",
+    "parentId": "A1_R_EXT",
+    "type": "bridge",
+    "text": "Now let's shift from how you handled things — to what you gave.",
+    "target": "A2_Q1"
+  },
+
+  {
+    "id": "A2_Q1",
+    "parentId": null,
+    "type": "question",
+    "text": "Which of these best describes a moment from today?",
+    "options": [
+      "I helped someone beyond my role",
+      "I felt I deserved more recognition",
+      "I supported team progress quietly",
+      "I felt others should do more"
+    ],
+    "signals": [
+      "axis2:contribution",
+      "axis2:entitlement",
+      "axis2:contribution",
+      "axis2:entitlement"
+    ]
+  },
+
+  {
+    "id": "A2_Q2",
+    "parentId": "A2_Q1",
+    "type": "question",
+    "text": "How did you approach effort today?",
+    "options": [
+      "Did more than required",
+      "Did what was expected",
+      "Avoided extra responsibility",
+      "Expected others to contribute more"
+    ],
+    "signals": [
+      "axis2:contribution",
+      "axis2:neutral",
+      "axis2:entitlement",
+      "axis2:entitlement"
+    ]
+  },
+
+  {
+    "id": "A2_D1",
+    "parentId": "A2_Q2",
+    "type": "decision",
+    "logic": {
+      "axis2:contribution": "A2_R_CONTRIB",
+      "axis2:entitlement": "A2_R_ENT"
+    }
+  },
+
+  {
+    "id": "A2_R_CONTRIB",
+    "parentId": "A2_D1",
+    "type": "reflection",
+    "text": "You contributed beyond immediate expectations. That kind of effort builds long-term trust and momentum.",
+    "signal": "axis2:contribution"
+  },
+
+  {
+    "id": "A2_R_ENT",
+    "parentId": "A2_D1",
+    "type": "reflection",
+    "text": "Wanting fairness and recognition is natural. At the same time, focusing on contribution can shift how situations unfold.",
+    "signal": "axis2:entitlement"
+  },
+
+  {
+    "id": "BRIDGE_2_3",
+    "parentId": "A2_R_CONTRIB",
+    "type": "bridge",
+    "text": "Now let’s widen the perspective — beyond just your experience.",
+    "target": "A3_Q1"
+  },
+
+  {
+    "id": "BRIDGE_2_3B",
+    "parentId": "A2_R_ENT",
+    "type": "bridge",
+    "text": "Now let’s widen the perspective — beyond just your experience.",
+    "target": "A3_Q1"
+  },
+
+  {
+    "id": "A3_Q1",
+    "parentId": null,
+    "type": "question",
+    "text": "When you think about today's biggest challenge, who comes to mind?",
+    "options": [
+      "Just me",
+      "My team",
+      "A colleague",
+      "The end user"
+    ],
+    "signals": [
+      "axis3:self",
+      "axis3:team",
+      "axis3:others",
+      "axis3:others"
+    ]
+  },
+
+  {
+    "id": "A3_Q2",
+    "parentId": "A3_Q1",
+    "type": "question",
+    "text": "What mattered most by the end of the day?",
+    "options": [
+      "My output",
+      "Team success",
+      "Helping someone",
+      "Delivering value"
+    ],
+    "signals": [
+      "axis3:self",
+      "axis3:others",
+      "axis3:others",
+      "axis3:others"
+    ]
+  },
+
+  {
+    "id": "A3_D1",
+    "parentId": "A3_Q2",
+    "type": "decision",
+    "logic": {
+      "axis3:self": "A3_R_SELF",
+      "axis3:others": "A3_R_OTHERS"
+    }
+  },
+
+  {
+    "id": "A3_R_SELF",
+    "parentId": "A3_D1",
+    "type": "reflection",
+    "text": "Focusing on your own challenges is natural. Expanding the frame can sometimes reduce pressure and reveal shared context.",
+    "signal": "axis3:self"
+  },
+
+  {
+    "id": "A3_R_OTHERS",
+    "parentId": "A3_D1",
+    "type": "reflection",
+    "text": "You considered the broader impact of your work. That wider perspective often brings meaning and clarity.",
+    "signal": "axis3:others"
+  },
+
+  {
+    "id": "SUMMARY",
+    "parentId": "A3_R_SELF",
+    "type": "summary",
+    "text": "Today you leaned {axis1.dominant} in handling situations, {axis2.dominant} in contribution, and your focus was {axis3.dominant}. This pattern is worth noticing.",
+  },
+
+  {
+    "id": "SUMMARY_B",
+    "parentId": "A3_R_OTHERS",
+    "type": "summary",
+    "text": "Today you leaned {axis1.dominant} in handling situations, {axis2.dominant} in contribution, and your focus was {axis3.dominant}. This reflects a strong outward orientation."
+  },
+
+  {
+    "id": "END",
+    "parentId": "SUMMARY",
+    "type": "end",
+    "text": "See you tomorrow."
+  },
+
+  {
+    "id": "END_B",
+    "parentId": "SUMMARY_B",
+    "type": "end",
+    "text": "See you tomorrow."
+  }
+]

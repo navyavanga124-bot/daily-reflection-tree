@@ -1,0 +1,176 @@
+# Design Write-up — Daily Reflection Tree
+
+## 1. Problem Understanding
+
+The assignment focuses on building a **deterministic reflection system** that helps employees evaluate their day through structured thinking.
+
+Unlike AI-based tools, this system:
+
+* Does not generate responses dynamically
+* Does not rely on interpretation
+* Instead encodes logic into a fixed structure
+
+This shifts the problem from "answer generation" to **knowledge design**.
+
+---
+
+## 2. Design Approach
+
+The system is designed as a **decision tree**, where:
+
+* Each node represents a cognitive step
+* Each answer leads to a predefined branch
+* The entire flow is predictable and traceable
+
+This ensures:
+
+* Consistency across sessions
+* No hallucination risk
+* Clear reasoning paths
+
+---
+
+## 3. Axis-Based Reflection Model
+
+The reflection is structured across three psychological axes:
+
+---
+
+### Axis 1: Locus of Control (Victim ↔ Victor)
+
+Focus: Identifying whether users see themselves as passive or active in outcomes.
+
+Design:
+
+* Questions focus on reactions to challenges
+* Options reflect real internal thought patterns
+
+Goal:
+To help users recognize where they had control without assigning blame.
+
+---
+
+### Axis 2: Orientation (Entitlement ↔ Contribution)
+
+Focus: Shifting perspective from “what I received” to “what I gave”.
+
+Design:
+
+* Questions highlight effort, support, and expectations
+* Options subtly capture entitlement without being obvious
+
+Challenge:
+Entitlement is often unconscious, so indirect questioning was necessary.
+
+---
+
+### Axis 3: Radius of Concern (Self ↔ Others)
+
+Focus: Expanding perspective beyond self.
+
+Design:
+
+* Questions move from self → team → individuals → end users
+* Encourages perspective-taking naturally
+
+Insight:
+This axis builds on the previous two, creating a progression.
+
+---
+
+## 4. Question Design
+
+The questions were designed with the following principles:
+
+* **Realistic** → Reflect actual thought patterns
+* **Non-leading** → No “correct” answers
+* **Clear** → Easy to choose without confusion
+* **Reflective** → Encourages pause and thinking
+
+Example:
+Instead of asking directly about responsibility, the question focuses on how the user reacted.
+
+---
+
+## 5. Branching and State
+
+Each answer contributes to a **state model**:
+
+* axis1 → internal vs external
+* axis2 → contribution vs entitlement
+* axis3 → self vs others
+
+These are tracked using signals and used to:
+
+* Route reflections
+* Generate the summary
+
+The logic is simple, transparent, and deterministic.
+
+---
+
+## 6. Reflection Design
+
+Reflections are written to:
+
+* Avoid judgment
+* Validate experience
+* Introduce alternate perspective
+
+Tone:
+
+* Neutral
+* Observational
+* Slightly forward-looking
+
+---
+
+## 7. Deterministic Design vs AI
+
+A key constraint was avoiding LLM usage at runtime.
+
+Advantages:
+
+* Predictable outputs
+* No hallucination
+* Easy to audit
+
+AI was used only during development for:
+
+* Generating ideas
+* Testing scenarios
+* Refining language
+
+---
+
+## 8. Trade-offs
+
+* Fixed options reduce flexibility but improve clarity
+* Simple signals reduce depth but increase transparency
+* Deterministic flow limits adaptability but ensures reliability
+
+---
+
+## 9. Improvements
+
+With more time:
+
+* Add longitudinal tracking across days
+* Introduce adaptive questioning depth
+* Expand behavioral scenarios
+* Build visualization layer
+
+---
+
+## 10. Conclusion
+
+This project demonstrates how structured thinking can be encoded into a deterministic system.
+
+The key challenge was not coding, but:
+
+* Designing meaningful questions
+* Structuring cognitive flow
+* Balancing guidance with neutrality
+
+This reflects the core idea of knowledge engineering:
+**turning human insight into usable systems.**
